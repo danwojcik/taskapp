@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://db4free.net:3306/sda_rzew11_db
+    username: sda_rzew11_user
+    password: sda_rzew11_user
+  jpa:
+    hibernate:
+      ddl-auto: update
