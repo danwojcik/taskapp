@@ -8,6 +8,7 @@ import pl.sda.taskapp.entity.User;
 public class UserMapper {
 
     public UserDto mapToDto(User user) {
+
         return UserDto.builder()
                 .id(user.getId())
                 .firstName(user.getFirstName())
@@ -17,8 +18,8 @@ public class UserMapper {
                 .sex(user.getSex())
                 .build();
     }
-
     public User mapToUser(UserDto userDto) {
+
         return User.builder()
                 .id(userDto.getId())
                 .firstName(userDto.getFirstName())

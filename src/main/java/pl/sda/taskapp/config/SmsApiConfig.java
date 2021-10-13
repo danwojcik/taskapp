@@ -14,8 +14,11 @@ public class SmsApiConfig {
 
     @Bean
     public SmsFactory createSmsFactory() throws ClientException {
+
         OAuthClient client = new OAuthClient(oauthToken);
+
         ProxyNative proxy = new ProxyNative("https://api.smsapi.pl/");
+
         return new SmsFactory(client, proxy);
     }
 }

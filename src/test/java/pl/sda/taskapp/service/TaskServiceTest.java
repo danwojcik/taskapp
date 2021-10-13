@@ -16,7 +16,6 @@ class TaskServiceTest {
 
     @Test //wstrzyknięcie przez pole
     void shouldSveTaskInService() {
-
         //given
         var task = new TaskDto(); //od JAVA 11 można używać 'var' zamiast używać nazwy klasy
         task.setId(1L);

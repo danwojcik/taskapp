@@ -17,6 +17,7 @@ public class SmsSenderService {
     }
 
     public void sendSms(String message) {
+
         try {
             smsFactory.actionSend()
                     .setTo(phoneNumber)

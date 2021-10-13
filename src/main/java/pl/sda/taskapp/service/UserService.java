@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 @Service //adnotajca beanowa
 public class UserService {
 
-
     @Deprecated
     private List<UserDto> users = new ArrayList<>();
     private final UserRepository userRepository;
@@ -24,6 +23,7 @@ public class UserService {
 
     @Autowired
     public UserService(UserRepository userRepository, UserMapper userMapper, SmsSenderService smsSenderService) {
+
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.smsSenderService = smsSenderService;
@@ -32,6 +32,7 @@ public class UserService {
 
     //1.rejestracja konta użytkownika
     public void addUser(UserDto userDto) {
+
         var userToSave = userMapper.mapToUser(userDto);
         userRepository.save(userToSave);
     }
@@ -43,6 +44,7 @@ public class UserService {
 
     //pobieranie użytkownika
     public Optional<UserDto> findUser(Long userId) {
+
         return users.stream()
                 .filter(user -> user.getId().equals(userId))
                 .findFirst();
@@ -50,6 +52,7 @@ public class UserService {
 
     //4.pobieranie szczegółów użytkownika
     public List<UserDto> getUsers() {
+
         return userRepository.findAll()
                 .stream()
                 .map(userMapper::mapToDto)
@@ -58,12 +61,14 @@ public class UserService {
 
     //5.aktualizaja danych użytkownika
     public void updateUser(UserDto oldUser, UserDto newUser) {
+
         users.remove(oldUser);
         users.add(newUser);
     }
 
     //6.aktualizacja hasła użytkownika
     public void updateUserPassword(String newUserPassword, Long userId) {
+
         users.stream()
                 .filter(user -> user.getId().equals(userId))
                 .findFirst()

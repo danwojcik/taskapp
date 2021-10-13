@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor //konstruktor bezparametrowy
 @AllArgsConstructor //konstruktor z wszystkimi parametrami
 public class TaskDto {
+
     private Long id;
     private String name;
     private String description;

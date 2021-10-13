@@ -43,5 +43,4 @@ public class UserController {
     public void updateUserPassword(@PathVariable("userPassword") Long userId, @RequestBody UserDto userDto) {
         userService.findUser(userId).ifPresent(oldUserPassword -> userService.updateUserPassword(userDto.getPassword(), userId));
     }
-
 }

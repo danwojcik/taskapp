@@ -8,14 +8,15 @@ import pl.sda.taskapp.entity.Task;
 public class TaskMapper {
 
     public TaskDto mapToDto(Task task) {
+
         return TaskDto.builder()
                 .id(task.getId())
                 .name(task.getName())
                 .description(task.getDescription())
                 .build();
     }
-
     public Task mapToTask(TaskDto taskDto) {
+
         return Task.builder()
                 .id(taskDto.getId())
                 .name(taskDto.getName())

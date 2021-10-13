@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.sda.taskapp.dto.Sex;
 
+import pl.sda.taskapp.dto.Sex;
 import javax.persistence.*;
 
 @Data
@@ -25,5 +25,4 @@ public class User {
     private String login;
     private String password;
     private Sex sex;
-
 }

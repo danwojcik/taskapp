@@ -24,12 +24,13 @@ public class TaskService {
 
     @Autowired
     public TaskService(TaskRepository taskRepository, TaskMapper taskMapper, SmsSenderService smsSenderService) {
+
         this.taskRepository = taskRepository;
         this.smsSenderService = smsSenderService;
         this.taskMapper = taskMapper;
     }
 
-//        @PostConstruct //metoda wywołuje siępo stworzeniu beana i może posłużyć do ustawienia jakiejś wartości
+//        @PostConstruct //metoda wywołuje się po stworzeniu beana i może posłużyć do ustawienia jakiejś wartości
 //        void init() {
 //            Random random = new Random();
 //            tasks.add(new TaskDto(1L, "wyniesc smieci", "najlepiej dzis"));
@@ -59,12 +60,14 @@ public class TaskService {
     }
 
     public Optional<TaskDto> findTask(Long taskId) {
+
         return tasks.stream()
                 .filter(task -> task.getId().equals(taskId))
                 .findFirst();
     }
 
     public void updateTask(Long taskId, TaskDto newTask) {
+
         taskRepository.findById(taskId)
                 .ifPresent(oldTask -> {
                     oldTask.setName(newTask.getName());
@@ -78,6 +81,7 @@ public class TaskService {
     }
 
     public TaskDto getTask(Long taskId) {
+
         return taskRepository.findById(taskId)
                 .map(taskMapper::mapToDto)
                 .orElse(null);
